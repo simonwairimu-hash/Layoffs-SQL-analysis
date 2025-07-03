@@ -56,9 +56,8 @@ Layoffs by company × year, identifying major layoff events
 ### Sample query:
 
 sql
-Copy
-Edit
-WITH Rolling_Total AS (
+
+**WITH Rolling_Total AS (
   SELECT DATE_FORMAT(`date`, '%Y-%m') AS `month`,
          SUM(total_laid_off) AS total_off
   FROM layoffs_staging2
@@ -66,7 +65,7 @@ WITH Rolling_Total AS (
 )
 SELECT `month`, total_off,
        SUM(total_off) OVER (ORDER BY `month`) AS rolling_total
-FROM Rolling_Total;
+FROM Rolling_Total;*
 ## 💡 Key Insights
 Spike in layoffs during key periods—highlighting economic downturns
 
